@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>炭火居酒屋 縁 -EN- | 新橋</title>
+  <meta name="description" content="炭火居酒屋 縁。新橋駅から徒歩3分。こだわりの炭火焼きと厳選地酒で、大切な一夜をお過ごしください。">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-jp">炭火居酒屋</span>
+        <span class="logo-name">縁 <em>-EN-</em></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- ドロワーナビ -->
+    <nav class="drawer" id="drawer">
+      <ul>
+        <li><a href="#concept" class="nav-link">コンセプト</a></li>
+        <li><a href="#menu-yakitori" class="nav-link">炭火焼き</a></li>
+        <li><a href="#menu-ippin" class="nav-link">一品料理</a></li>
+        <li><a href="#menu-drink" class="nav-link">お酒</a></li>
+        <li><a href="#course" class="nav-link">コース</a></li>
+        <li><a href="#reserve" class="nav-link reserve-btn">ご予約</a></li>
+        <li><a href="#access" class="nav-link">アクセス</a></li>
+      </ul>
+    </nav>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero" id="hero">
+    <div class="hero-slides">
+      <!--
+        【画像差し替えポイント①】ヒーロー スライド1
+        現在: sumibi.webp（炭火グリル・煙・賑わう店内 → 看板イメージとして最適）
+        本番差し替え時: url('images/hero1.jpg') に変更
+      -->
+      <div class="hero-slide active"
+           style="background-image: url('images/sumibi.webp')">
+      </div>
+
+      <!--
+        【画像差し替えポイント②】ヒーロー スライド2
+        現在: negima.webp（ねぎま串盛り・照り・煙 → 食欲をそそる串焼きシーン）
+        本番差し替え時: url('images/hero2.jpg') に変更
+      -->
+      <div class="hero-slide"
+           style="background-image: url('images/negima.webp')">
+      </div>
+
+      <!--
+        【画像差し替えポイント③】ヒーロー スライド3
+        現在: torimomo.webp（もも焼き盛り合わせ・湯気・居酒屋の温かい雰囲気）
+        本番差し替え時: url('images/hero3.jpg') に変更
+      -->
+      <div class="hero-slide"
+           style="background-image: url('images/torimomo.webp')">
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-catch">炭の香りと、人の縁。</p>
+      <h1 class="hero-title">炭火居酒屋<br><span>縁 <em>-EN-</em></span></h1>
+      <p class="hero-sub">新橋駅 徒歩3分 ／ 完全個室あり</p>
+      <div class="hero-btns">
+        <a href="tel:03-XXXX-XXXX" class="btn btn-tel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          電話予約
+        </a>
+        <a href="#reserve" class="btn btn-web">WEB予約</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- 予約バナー（常時表示） -->
+  <div class="reserve-bar">
+    <a href="tel:03-XXXX-XXXX" class="reserve-bar-tel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      03-XXXX-XXXX
+    </a>
+    <a href="#reserve" class="reserve-bar-web">今すぐ予約</a>
+  </div>
+
+  <!-- コンセプト -->
+  <section class="section concept" id="concept">
+    <div class="section-inner">
+      <div class="section-label">CONCEPT</div>
+      <h2 class="section-title">炭の火が、<br>縁をつなぐ。</h2>
+      <div class="concept-body">
+        <div class="concept-img-wrap">
+          <!--
+            【画像差し替えポイント④】コンセプト画像
+            推奨: 備長炭・炭火で焼く手元のクローズアップ（横長 800×533px）
+            本番: src="images/concept.jpg" に変更
+          -->
+          <img
+            src="images/sumibi.webp"
+            alt="備長炭で串焼きを焼く炭火グリルと賑わう店内"
+            class="concept-img"
+            width="800" height="533"
+            loading="lazy">
+        </div>
+        <div class="concept-text">
+          <p>
+            備長炭の遠赤外線がじっくりと素材を包み込み、<br>
+            表面はパリッと、中はふっくらジューシー。
+          </p>
+          <p>
+            「縁」が大切にするのは、食材と火の縁、<br>
+            お客様と仲間との縁、そしてこの場所に集う<br>
+            すべての人と人とのつながりです。
+          </p>
+          <p>
+            今夜も、ここで大切な時間をお過ごしください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 炭火焼き -->
+  <section class="section menu-section" id="menu-yakitori">
+    <div class="section-inner">
+      <div class="section-label">CHARCOAL GRILL</div>
+      <h2 class="section-title">炭火焼き</h2>
+      <p class="section-desc">備長炭で丁寧に焼き上げた自慢の串。一本一本、職人が手打ちで仕込みます。</p>
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-img-wrap">
+            <!--
+              【画像差し替えポイント⑤】炭火焼き①：もも焼き
+              推奨: 鶏もも串・炭火のクローズアップ（600×450px）
+              本番: src="images/yakitori1.jpg" に変更
+            -->
+            <img
+              src="images/torimomo.webp"
+              alt="炭火焼きもも串・タレ照り・湯気が立つ盛り合わせ"
+              width="600" height="450"
+              loading="lazy">
+            <div class="menu-card-tag">人気No.1</div>
+          </div>
+          <div class="menu-card-body">
+            <h3>もも焼き</h3>
+            <p>ジューシーな国産若鶏のもも肉。タレ・塩お選びいただけます。</p>
+            <span class="menu-price">180円<small>/本</small></span>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-img-wrap">
+            <!--
+              【画像差し替えポイント⑥】炭火焼き②：つくね
+              推奨: つくね串・照りのあるタレ仕上げ（600×450px）
+              本番: src="images/yakitori2.jpg" に変更
+            -->
+            <img
+              src="images/tukune.webp"
+              alt="自家製だれのつくね串・ごまと三つ葉のトッピング"
+              width="600" height="450"
+              loading="lazy">
+            <div class="menu-card-tag">おすすめ</div>
+          </div>
+          <div class="menu-card-body">
+            <h3>つくね</h3>
+            <p>自家製だれで仕上げた、ふわっとした食感の手ごねつくね。</p>
+            <span class="menu-price">200円<small>/本</small></span>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-img-wrap">
+            <!--
+              【画像差し替えポイント⑦】炭火焼き③：ねぎま
+              推奨: ねぎま串・グリル痕のある仕上がり（600×450px）
+              本番: src="images/yakitori3.jpg" に変更
+            -->
+            <img
+              src="images/negima.webp"
+              alt="鶏もも肉と長ねぎのねぎま串・炭火焼き仕上げ"
+              width="600" height="450"
+              loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3>ねぎま</h3>
+            <p>鶏もも肉と長ねぎを交互に刺した定番串。シンプルに素材を楽しむ。</p>
+            <span class="menu-price">180円<small>/本</small></span>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-img-wrap">
+            <!--
+              【画像差し替えポイント⑧】炭火焼き④：とりかわ
+              推奨: パリパリのとりかわ串・香ばしいカット（600×450px）
+              本番: src="images/yakitori4.jpg" に変更
+            -->
+            <img
+              src="images/torikawa.webp"
+              alt="パリパリとりかわ串・炭火でカリカリに焼き上げ"
+              width="600" height="450"
+              loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3>とりかわ</h3>
+            <p>パリパリになるまで丁寧に焼き上げた、カリカリの鶏皮串。</p>
+            <span class="menu-price">160円<small>/本</small></span>
+          </div>
+        </div>
+
+      </div>
+      <a href="#" class="btn-more">メニューをもっと見る</a>
+    </div>
+  </section>
+
+  <!-- おすすめ一品 フィーチャー -->
+  <section class="feature-section" id="feature-ippin">
+    <div class="feature-img-wrap">
+      <!--
+        【画像差し替えポイント⑨】フィーチャー：シグネチャー料理
+        推奨: シラスおろし・食欲をそそる大皿ショット（800×600px）
+        本番: src="images/ippin_feature.jpg" に変更
+      -->
+      <!--
+        【画像差し替えポイント⑨】フィーチャー：シグネチャー料理
+        現在: yamamorisirasuorosi.webp（山盛りシラスおろし）
+      -->
+      <img
+        src="images/yamamorisirasuorosi.webp"
+        alt="山盛りシラスおろし・駿河湾直送の新鮮シラスをたっぷりと"
+        width="800" height="600"
+        loading="lazy">
+    </div>
+    <div class="feature-body">
+      <div class="feature-label">SIGNATURE DISH</div>
+      <h2 class="feature-title">山盛りシラスおろし</h2>
+      <p class="feature-desc">
+        駿河湾直送の新鮮シラスをたっぷりと。<br>
+        大根おろしとポン酢で、さっぱりと召し上がれ。<br>
+        炭火焼きとの相性も抜群のシグネチャーメニューです。
+      </p>
+      <span class="feature-price">680円</span>
+    </div>
+  </section>
+
+  <!-- 一品料理 -->
+  <section class="section menu-section" id="menu-ippin">
+    <div class="section-inner">
+      <div class="section-label">A LA CARTE</div>
+      <h2 class="section-title">一品料理</h2>
+      <p class="section-desc">旬の食材を活かした季節のおつまみ。お酒がすすむ自慢の一品たちです。</p>
+      <div class="menu-list">
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑩】一品①：だし巻き玉子
+            推奨: だし巻き玉子・箸で切ったところ（150×150px 正方形）
+            本番: src="images/ippin1.jpg" に変更
+          -->
+          <img
+            src="images/dasimakitamago.webp"
+            alt="ふわとろだし巻き玉子・おろし添え"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>だし巻き玉子</h3>
+            <p>ふわとろ仕上げ。おろし添え。</p>
+          </div>
+          <span class="menu-price">480円</span>
+        </div>
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑪】一品②：板わさ
+            推奨: 蒲鉾・わさびを盛り付けた和風スタイル（150×150px）
+            本番: src="images/ippin2.jpg" に変更
+          -->
+          <img
+            src="images/itawasa.webp"
+            alt="板わさ・紀州梅山葵と蒲鉾の定番セット"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>板わさ</h3>
+            <p>紀州梅山葵と蒲鉾の定番セット。</p>
+          </div>
+          <span class="menu-price">380円</span>
+        </div>
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑫】一品③：鶏白湯スープ
+            推奨: 白濁した鶏スープ・湯気が立つシーン（150×150px）
+            本番: src="images/ippin3.jpg" に変更
+          -->
+          <img
+            src="images/toripaitan.webp"
+            alt="濃厚鶏白湯スープ・長時間煮込み"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>鶏白湯スープ</h3>
+            <p>長時間煮込んだ濃厚な鶏スープ。</p>
+          </div>
+          <span class="menu-price">380円</span>
+        </div>
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑬】一品④：肉豆腐
+            推奨: 醤油煮込みの肉豆腐・土鍋か陶器鉢（150×150px）
+            本番: src="images/ippin4.jpg" に変更
+          -->
+          <img
+            src="images/nikudouhu.webp"
+            alt="甘辛醤油煮込みの肉豆腐"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>肉豆腐</h3>
+            <p>甘辛醤油で煮込んだ定番おつまみ。</p>
+          </div>
+          <span class="menu-price">580円</span>
+        </div>
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑭】一品⑤：ポテトサラダ
+            推奨: こんもりと盛ったポテサラ・和食器（150×150px）
+            本番: src="images/ippin5.jpg" に変更
+          -->
+          <!--
+            【画像差し替えポイント⑭】一品⑤：ポテトサラダ
+            現在: potetosarada.webp
+          -->
+          <img
+            src="images/potetosarada.webp"
+            alt="縁のポテトサラダ・自家製マヨネーズ仕立て"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>縁のポテサラ</h3>
+            <p>自家製マヨネーズ仕立て。定番の味。</p>
+          </div>
+          <span class="menu-price">380円</span>
+        </div>
+
+        <div class="menu-list-item">
+          <!--
+            【画像差し替えポイント⑮】一品⑥：〆の親子丼
+            推奨: とろとろ卵の親子丼・丼ぶり俯瞰ショット（150×150px）
+            本番: src="images/ippin6.jpg" に変更
+          -->
+          <img
+            src="images/oyakodon.webp"
+            alt="とろとろ卵の〆の親子丼・炭火焼きのだし使用"
+            width="150" height="150"
+            loading="lazy">
+          <div class="menu-list-body">
+            <h3>〆の親子丼</h3>
+            <p>炭火焼きのだしで炊いた絶品の締め。</p>
+          </div>
+          <span class="menu-price">680円</span>
+        </div>
+
+      </div>
+      <a href="#" class="btn-more">一品メニューをすべて見る</a>
+    </div>
+  </section>
+
+  <!-- お酒 フィーチャー -->
+  <section class="feature-section feature-dark" id="menu-drink">
+    <div class="feature-img-wrap">
+      <!--
+        【画像差し替えポイント⑯】フィーチャー：お酒
+        推奨: 一升瓶・ぐい飲み・暗背景の日本酒シーン（800×600px）
+        本番: src="images/drink_feature.jpg" に変更
+      -->
+      <img
+        src="images/zizake.webp"
+        alt="厳選地酒の一升瓶コレクション・全国各地の銘柄が並ぶ"
+        width="800" height="600"
+        loading="lazy">
+    </div>
+    <div class="feature-body">
+      <div class="feature-label">JAPANESE SAKE</div>
+      <h2 class="feature-title">こだわりの地酒</h2>
+      <p class="feature-desc">
+        全国各地の蔵元から仕入れた厳選地酒を<br>
+        常時20種以上ご用意。<br>
+        スタッフが料理との相性をご提案します。
+      </p>
+      <div class="drink-badges">
+        <span>日本酒</span>
+        <span>焼酎</span>
+        <span>クラフトビール</span>
+        <span>ハイボール</span>
+        <span>ワイン</span>
+        <span>ノンアルコール</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- コース -->
+  <section class="section course-section" id="course">
+    <div class="section-inner">
+      <div class="section-label">COURSE</div>
+      <h2 class="section-title">コース・プラン</h2>
+      <p class="section-desc">宴会・接待・女子会・誕生日など、各シーンに合わせたコースをご用意しています。</p>
+      <div class="course-cards">
+        <div class="course-card">
+          <div class="course-card-head">
+            <span class="course-badge">人気</span>
+            <h3>縁コース</h3>
+            <p class="course-price">3,800円<small>/名（飲み放題込み）</small></p>
+          </div>
+          <ul class="course-items">
+            <li>前菜盛り合わせ</li>
+            <li>炭火焼き5本盛り</li>
+            <li>季節の一品 3種</li>
+            <li>〆の一品</li>
+            <li>デザート</li>
+            <li>2時間飲み放題</li>
+          </ul>
+          <a href="#reserve" class="btn btn-course">このコースで予約</a>
+        </div>
+        <div class="course-card course-card-premium">
+          <div class="course-card-head">
+            <span class="course-badge premium">プレミアム</span>
+            <h3>特選コース</h3>
+            <p class="course-price">5,500円<small>/名（飲み放題込み）</small></p>
+          </div>
+          <ul class="course-items">
+            <li>厳選前菜盛り合わせ</li>
+            <li>炭火焼き8本盛り</li>
+            <li>季節の一品 5種</li>
+            <li>刺身盛り合わせ</li>
+            <li>〆の一品</li>
+            <li>デザート</li>
+            <li>2時間プレミアム飲み放題</li>
+          </ul>
+          <a href="#reserve" class="btn btn-course">このコースで予約</a>
+        </div>
+      </div>
+      <p class="course-note">※ご予約はお電話またはWEBフォームにて承ります。お気軽にご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- 個室 -->
+  <section class="section room-section">
+    <div class="section-inner">
+      <div class="section-label">PRIVATE ROOM</div>
+      <h2 class="section-title">【限定1室】<br>完全個室</h2>
+      <p class="section-desc">接待・記念日・女子会に。<br>障子と畳の純和風空間で、周りを気にせずゆっくりとお過ごしいただけます。<br><strong>ご予約はお早めに。</strong></p>
+      <div class="room-gallery room-gallery-single">
+        <!--
+          【画像差し替えポイント⑰】完全個室（限定1室）
+          現在: kositu.webp（障子・畳・行灯の純和風個室）
+          本番差し替え時: src="images/kositu_honban.webp" に変更
+        -->
+        <div class="room-img-main">
+          <img
+            src="images/kositu.webp"
+            alt="純和風の完全個室・障子と畳・行灯の温かい灯り"
+            width="1200" height="654"
+            loading="lazy">
+        </div>
+      </div>
+      <div class="room-info">
+        <div class="room-info-item">
+          <span class="room-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <div>
+            <strong>総席数</strong>
+            <span>40席（完全個室1室含む）</span>
+          </div>
+        </div>
+        <div class="room-info-item">
+          <span class="room-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </span>
+          <div>
+            <strong>個室（限定1室）</strong>
+            <span>4名〜8名まで対応可</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 予約セクション -->
+  <section class="section reserve-section" id="reserve">
+    <div class="section-inner">
+      <div class="section-label">RESERVATION</div>
+      <h2 class="section-title">ご予約・お問い合わせ</h2>
+      <p class="section-desc">お電話・WEBどちらでもご予約を承っております。<br>コースや個室についてもお気軽にご相談ください。</p>
+      <div class="reserve-options">
+        <a href="tel:03-XXXX-XXXX" class="reserve-option tel-option">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <div>
+            <span class="reserve-option-label">お電話でのご予約</span>
+            <span class="reserve-option-value">03-XXXX-XXXX</span>
+            <span class="reserve-option-hours">受付時間：17:00〜23:00</span>
+          </div>
+        </a>
+        <a href="#" class="reserve-option web-option">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <span class="reserve-option-label">WEBからのご予約</span>
+            <span class="reserve-option-value">24時間受付中</span>
+            <span class="reserve-option-hours">ホットペッパーグルメ連携</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- アクセス -->
+  <section class="section access-section" id="access">
+    <div class="section-inner">
+      <div class="section-label">ACCESS</div>
+      <h2 class="section-title">アクセス</h2>
+      <div class="access-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6487787944566!2d139.7565579!3d35.6659827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5paw5qmL5bqX!5e0!3m2!1sja!2sjp!4v1700000000000"
+          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="店舗地図"></iframe>
+      </div>
+      <div class="access-info">
+        <dl>
+          <div class="access-row">
+            <dt>店名</dt>
+            <dd>炭火居酒屋 縁 -EN-</dd>
+          </div>
+          <div class="access-row">
+            <dt>住所</dt>
+            <dd>東京都港区新橋X-X-X XXビル2F</dd>
+          </div>
+          <div class="access-row">
+            <dt>アクセス</dt>
+            <dd>JR新橋駅 烏森口 徒歩3分<br>都営三田線 内幸町駅 徒歩2分</dd>
+          </div>
+          <div class="access-row">
+            <dt>電話</dt>
+            <dd><a href="tel:03-XXXX-XXXX">03-XXXX-XXXX</a></dd>
+          </div>
+          <div class="access-row">
+            <dt>営業時間</dt>
+            <dd>月〜金 17:00〜24:00<br>土・祝 16:00〜23:00<br>日曜定休</dd>
+          </div>
+          <div class="access-row">
+            <dt>席数</dt>
+            <dd>40席（完全個室1室）</dd>
+          </div>
+          <div class="access-row">
+            <dt>支払方法</dt>
+            <dd>現金・クレジットカード・PayPay</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">
+        <span>炭火居酒屋</span>
+        <strong>縁 -EN-</strong>
+      </a>
+      <nav class="footer-nav">
+        <a href="#concept">コンセプト</a>
+        <a href="#menu-yakitori">炭火焼き</a>
+        <a href="#menu-ippin">一品料理</a>
+        <a href="#menu-drink">お酒</a>
+        <a href="#course">コース</a>
+        <a href="#access">アクセス</a>
+      </nav>
+      <p class="footer-tel"><a href="tel:03-XXXX-XXXX">03-XXXX-XXXX</a></p>
+      <p class="footer-hours">月〜金 17:00〜24:00 ／ 土・祝 16:00〜23:00 ／ 日曜定休</p>
+      <p class="footer-copy">&copy; 2025 炭火居酒屋 縁 -EN- All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 固定予約ボタン（スマホ用） -->
+  <div class="float-reserve">
+    <a href="tel:03-XXXX-XXXX" class="float-btn float-tel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      電話する
+    </a>
+    <a href="#reserve" class="float-btn float-web">WEB予約</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# 元のPNGファイル（WebP変換済みのため除外）
+images/*.png
+
+# 開発用ファイル
+images/README.txt
+.claude/
+*.code-workspace
