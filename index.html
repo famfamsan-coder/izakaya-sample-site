@@ -3,11 +3,1097 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>炭火居酒屋 縁 -EN- | 新橋</title>
-  <meta name="description" content="炭火居酒屋 縁。新橋駅から徒歩3分。こだわりの炭火焼きと厳選地酒で、大切な一夜をお過ごしください。">
-  <link rel="stylesheet" href="style.css">
+  <title>炭火居酒屋 縁 -EN- | 新橋駅徒歩3分 完全個室 コース¥3,800〜</title>
+  <meta name="description" content="備長炭で焼き上げた本格炭火串と厳選地酒。新橋駅徒歩3分。完全個室あり。コース¥3,800〜。接待・記念日・仕事帰りに。Googleクチコミ4.8★。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: #0e0c09;
+      color: #f0e8dc;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --color-bg: #0e0c09;
+      --color-bg2: #161310;
+      --color-surface: #1e1a15;
+      --color-surface2: #252018;
+      --color-accent: #c8923a;
+      --color-accent-light: #e8b76a;
+      --color-text: #f0e8dc;
+      --color-text-muted: #9c8e7e;
+      --section-padding: clamp(60px, 8vw, 100px);
+      --inner-max: 1100px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .serif { font-family: 'Noto Serif JP', serif; }
+
+    /* ===== SECTION COMMON ===== */
+    .section { padding: var(--section-padding) 0; }
+    .section-inner {
+      max-width: var(--inner-max);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 5vw, 48px);
+    }
+    .section-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 20px;
+      color: var(--color-text);
+    }
+    .section-desc {
+      font-size: clamp(14px, 1.8vw, 16px);
+      color: var(--color-text-muted);
+      line-height: 1.9;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .site-header.scrolled {
+      background: rgba(14, 12, 9, 0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    .header-inner {
+      max-width: var(--inner-max);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 40px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-jp {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+    }
+    .logo-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-accent-light);
+      letter-spacing: 0.05em;
+    }
+    .logo-name em { font-style: normal; font-size: 14px; color: var(--color-text-muted); }
+
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--color-text);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* Drawer */
+    .drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: rgba(22, 19, 16, 0.98);
+      backdrop-filter: blur(12px);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 800;
+      padding: 80px 32px 40px;
+      border-left: 1px solid rgba(200, 146, 58, 0.2);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer ul { display: flex; flex-direction: column; gap: 0; }
+    .drawer li { border-bottom: 1px solid rgba(240, 232, 220, 0.07); }
+    .drawer .nav-link {
+      display: block;
+      padding: 16px 4px;
+      font-size: 15px;
+      font-family: 'Noto Serif JP', serif;
+      letter-spacing: 0.1em;
+      color: var(--color-text);
+      transition: color 0.2s;
+    }
+    .drawer .nav-link:hover { color: var(--color-accent-light); }
+    .drawer .nav-link.reserve-btn {
+      color: var(--color-accent-light);
+      font-weight: 700;
+    }
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .drawer-overlay.show { opacity: 1; pointer-events: all; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .hero-slides { position: absolute; inset: 0; }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+      will-change: transform, opacity;
+    }
+    .hero-slide.active { opacity: 1; }
+
+    /* Ken Burns effect */
+    .hero-slide:nth-child(1).kb-animate {
+      animation: kb1 8s ease-in-out forwards;
+    }
+    .hero-slide:nth-child(2).kb-animate {
+      animation: kb2 8s ease-in-out forwards;
+    }
+    .hero-slide:nth-child(3).kb-animate {
+      animation: kb3 8s ease-in-out forwards;
+    }
+    @keyframes kb1 {
+      0%   { transform: scale(1.12) translate(2%, 1%); }
+      100% { transform: scale(1.01) translate(0%, 0%); }
+    }
+    @keyframes kb2 {
+      0%   { transform: scale(1.0) translate(0%, 0%); }
+      100% { transform: scale(1.1) translate(-1.5%, 0.5%); }
+    }
+    @keyframes kb3 {
+      0%   { transform: scale(1.08) translate(-1.5%, -0.8%); }
+      100% { transform: scale(1.02) translate(1%, 0.5%); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(14,12,9,0.3) 0%,
+        rgba(14,12,9,0.15) 40%,
+        rgba(14,12,9,0.5) 70%,
+        rgba(14,12,9,0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Ember particles */
+    .embers {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .ember {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffb347, #e8b76a, transparent);
+      animation: floatEmber linear infinite;
+      opacity: 0;
+    }
+    .ember:nth-child(1) { width: 4px; height: 4px; left: 15%; animation-duration: 7s; animation-delay: 0s; }
+    .ember:nth-child(2) { width: 3px; height: 3px; left: 28%; animation-duration: 9s; animation-delay: 1.5s; }
+    .ember:nth-child(3) { width: 5px; height: 5px; left: 42%; animation-duration: 8s; animation-delay: 3s; }
+    .ember:nth-child(4) { width: 3px; height: 3px; left: 60%; animation-duration: 10s; animation-delay: 0.8s; }
+    .ember:nth-child(5) { width: 4px; height: 4px; left: 75%; animation-duration: 7.5s; animation-delay: 2.2s; }
+    .ember:nth-child(6) { width: 3px; height: 3px; left: 88%; animation-duration: 9.5s; animation-delay: 4.5s; }
+
+    @keyframes floatEmber {
+      0%   { transform: translateY(100vh) translateX(0) scale(1); opacity: 0; }
+      10%  { opacity: 0.9; }
+      60%  { opacity: 0.6; transform: translateY(30vh) translateX(20px) scale(0.8); }
+      90%  { opacity: 0.2; }
+      100% { transform: translateY(-10vh) translateX(-10px) scale(0.4); opacity: 0; }
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: clamp(80px, 12vh, 140px);
+      left: clamp(20px, 6vw, 80px);
+      z-index: 3;
+      max-width: 680px;
+    }
+    .hero-catch {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 2.2vw, 20px);
+      font-weight: 400;
+      color: var(--color-accent-light);
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(36px, 6vw, 68px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+    .hero-title span {
+      display: block;
+      font-size: clamp(28px, 4.5vw, 52px);
+      color: var(--color-accent-light);
+    }
+    .hero-title span em { font-style: normal; font-size: 0.65em; color: var(--color-text-muted); }
+    .hero-sub {
+      font-size: clamp(13px, 1.6vw, 15px);
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+
+    /* Price badge */
+    .hero-price-badge {
+      display: inline-block;
+      background: rgba(200, 146, 58, 0.18);
+      border: 1px solid rgba(200, 146, 58, 0.55);
+      color: var(--color-accent-light);
+      font-size: clamp(12px, 1.5vw, 14px);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+      min-height: 48px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-tel {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .btn-tel:hover { background: var(--color-accent-light); }
+    .btn-web {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid rgba(240, 232, 220, 0.4);
+    }
+    .btn-web:hover {
+      border-color: var(--color-accent-light);
+      color: var(--color-accent-light);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      right: 40px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-text-muted);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--color-accent), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .hero-dots {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+    }
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(240, 232, 220, 0.3);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-dot.active {
+      background: var(--color-accent-light);
+      transform: scale(1.3);
+    }
+
+    /* ===== QUICK ACTION BAR ===== */
+    .quick-bar {
+      background: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(12px, 3vw, 36px);
+      padding: 14px clamp(16px, 4vw, 40px);
+      flex-wrap: wrap;
+      position: sticky;
+      top: 64px;
+      z-index: 600;
+    }
+    .quick-bar-tel {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+    .quick-bar-tel:hover { opacity: 0.85; }
+    .quick-bar-hours {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em;
+    }
+    .quick-bar-btn {
+      background: rgba(14,12,9,0.55);
+      color: #fff;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .quick-bar-btn:hover { background: rgba(14,12,9,0.75); }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--color-surface);
+      border-top: 1px solid rgba(200, 146, 58, 0.2);
+      border-bottom: 1px solid rgba(200, 146, 58, 0.2);
+      padding: 32px clamp(16px, 5vw, 48px);
+    }
+    .stats-bar-inner {
+      max-width: var(--inner-max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 0 0 33.333%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px 24px;
+      position: relative;
+    }
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(200, 146, 58, 0.2);
+    }
+    .stat-icon {
+      font-size: 22px;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+    .stat-number {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--color-accent-light);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .stat-main {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== MENU HIGHLIGHT SECTION ===== */
+    .menu-highlight { background: var(--color-bg2); }
+    .menu-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .highlight-card {
+      background: var(--color-surface);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+    .highlight-card:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(200,146,58,0.25);
+    }
+    .highlight-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .highlight-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .highlight-card:hover .highlight-card-img-wrap img {
+      transform: scale(1.06);
+    }
+    .highlight-card-body {
+      padding: 18px 20px;
+    }
+    .highlight-card-body h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .highlight-card-body p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .highlight-price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-accent-light);
+    }
+    .highlight-price small {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+    .menu-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 24px;
+      padding: 16px 20px;
+      background: rgba(200, 146, 58, 0.06);
+      border: 1px solid rgba(200, 146, 58, 0.2);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+    }
+    .menu-price-row span {
+      color: var(--color-accent-light);
+      font-weight: 500;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+      min-height: 48px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      background: transparent;
+      color: var(--color-accent-light);
+      border: 1px solid var(--color-accent);
+    }
+    .btn-outline:hover {
+      background: rgba(200, 146, 58, 0.1);
+      border-color: var(--color-accent-light);
+    }
+
+    /* ===== SCENE SECTION ===== */
+    .scene-section { background: var(--color-bg); }
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .scene-card {
+      background: var(--color-surface);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 0 2px 2px 0;
+      padding: 32px 28px;
+      transition: box-shadow 0.3s ease;
+    }
+    .scene-card:hover {
+      box-shadow: 0 0 32px rgba(200, 146, 58, 0.12), 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .scene-emoji {
+      font-size: 36px;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .scene-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 2vw, 20px);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .scene-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-style: italic;
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: var(--color-accent-light);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(200,146,58,0.35);
+    }
+    .scene-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .scene-bullets li {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.55;
+    }
+    .scene-bullets li::before {
+      content: '—';
+      color: var(--color-accent);
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section { background: var(--color-bg2); }
+    .reviews-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(200, 146, 58, 0.3);
+      color: var(--color-text-muted);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(200, 146, 58, 0.15);
+      border-color: var(--color-accent);
+      color: var(--color-accent-light);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .review-card {
+      background: var(--color-surface);
+      border-radius: 4px;
+      padding: 28px 24px;
+      border-top: 2px solid rgba(200, 146, 58, 0.3);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .review-card.hidden {
+      opacity: 0.2;
+      transform: scale(0.97);
+    }
+    .review-stars {
+      color: var(--color-accent-light);
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .review-text {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.85;
+      margin-bottom: 20px;
+      quotes: "「" "」";
+    }
+    .review-text::before { content: open-quote; color: var(--color-accent); }
+    .review-text::after { content: close-quote; color: var(--color-accent); }
+    .review-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .review-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .review-date {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+    .reviews-google-link {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .reviews-google-link a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(156, 142, 126, 0.3);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .reviews-google-link a:hover { color: var(--color-accent-light); }
+
+    /* ===== COURSE / RESERVE SECTION ===== */
+    .reserve-section { background: var(--color-surface2); }
+    .urgency-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(200, 146, 58, 0.08);
+      border: 1px solid rgba(200, 146, 58, 0.45);
+      border-radius: 2px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      font-size: 14px;
+      color: var(--color-accent-light);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .urgency-banner-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .reserve-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .reserve-option {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 28px 24px;
+      background: var(--color-surface);
+      border: 1px solid rgba(240, 232, 220, 0.08);
+      border-radius: 2px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      min-height: 48px;
+    }
+    .reserve-option:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .tel-option svg,
+    .web-option svg { color: var(--color-accent-light); }
+    .reserve-option-label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+    .reserve-option-value {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 4vw, 22px);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+    .reserve-option-hours {
+      display: block;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      word-break: break-word;
+    }
+    .reserve-note {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    /* Course cards in reserve section */
+    .course-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .course-card {
+      background: var(--color-surface);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .course-card-premium {
+      border: 1px solid rgba(200, 146, 58, 0.5);
+    }
+    .course-card-head {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid rgba(240, 232, 220, 0.07);
+    }
+    .course-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+      background: var(--color-surface2);
+      color: var(--color-text-muted);
+      border-radius: 2px;
+    }
+    .course-badge.premium {
+      background: linear-gradient(135deg, #8B6914, #c8923a);
+      color: #fff;
+    }
+    .course-card-head h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .course-price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-accent-light);
+    }
+    .course-price small {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+    }
+    .course-items {
+      padding: 20px 28px;
+      flex: 1;
+    }
+    .course-items li {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(240, 232, 220, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .course-items li::before {
+      content: '—';
+      color: var(--color-accent);
+      font-size: 12px;
+    }
+    .course-items li:last-child { border-bottom: none; }
+    .btn-course {
+      display: flex;
+      margin: 0 28px 28px;
+      padding: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background: var(--color-accent);
+      color: #fff;
+      transition: background 0.25s;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-course:hover { background: var(--color-accent-light); }
+
+    /* ===== ACCESS SECTION ===== */
+    .access-section { background: var(--color-bg2); }
+    .access-map {
+      margin-bottom: 32px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(240, 232, 220, 0.08);
+    }
+    .access-map iframe { display: block; }
+    .access-info {
+      background: var(--color-surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .access-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      border-bottom: 1px solid rgba(240, 232, 220, 0.05);
+    }
+    .access-row:last-child { border-bottom: none; }
+    .access-row dt {
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.05em;
+      background: rgba(200, 146, 58, 0.05);
+      display: flex;
+      align-items: center;
+    }
+    .access-row dd {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .access-row dd a { color: var(--color-accent-light); }
+    .access-row dd a:hover { color: var(--color-text); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #0a0806;
+      border-top: 1px solid rgba(200, 146, 58, 0.15);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      max-width: var(--inner-max);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 5vw, 48px);
+      text-align: center;
+    }
+    .footer-logo {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 24px;
+    }
+    .footer-logo span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+    }
+    .footer-logo strong {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-accent-light);
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0 24px;
+      margin-bottom: 24px;
+    }
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+      padding: 4px 0;
+    }
+    .footer-nav a:hover { color: var(--color-accent-light); }
+    .footer-tel {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .footer-tel a { color: var(--color-text); }
+    .footer-tel a:hover { color: var(--color-accent-light); }
+    .footer-hours {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(156, 142, 126, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FLOAT RESERVE (mobile) ===== */
+    .float-reserve {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 800;
+    }
+    .float-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 56px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .float-tel {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .float-web {
+      background: var(--color-bg);
+      color: var(--color-text);
+      border-top: 1px solid rgba(200, 146, 58, 0.4);
+    }
+    @media (min-width: 769px) {
+      .float-reserve { display: none !important; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .menu-highlight-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .menu-highlight-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .scene-grid { grid-template-columns: 1fr; gap: 14px; }
+      .reviews-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+      .reviews-grid::-webkit-scrollbar { height: 4px; }
+      .reviews-grid::-webkit-scrollbar-track { background: var(--color-surface); }
+      .reviews-grid::-webkit-scrollbar-thumb { background: var(--color-accent); }
+      .review-card {
+        min-width: 280px;
+        scroll-snap-align: start;
+      }
+      .course-cards { grid-template-columns: 1fr; }
+      .reserve-options { grid-template-columns: 1fr; }
+      .float-reserve { display: flex !important; }
+      body { padding-bottom: 56px; }
+      .stat-item { flex: 0 0 33.333%; min-width: 0; }
+      .stat-number { font-size: clamp(20px, 5.5vw, 28px); }
+      .stat-sub { font-size: 10px; }
+      .hero-scroll { display: none; }
+      .quick-bar { top: 64px; }
+    }
+
+    @media (max-width: 560px) {
+      .menu-highlight-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns .btn { flex: 1; justify-content: center; }
+      .access-row { grid-template-columns: 80px 1fr; }
+      .reserve-option { gap: 14px; padding: 22px 18px; }
+      .reserve-option svg { width: 24px; height: 24px; flex-shrink: 0; }
+    }
+  </style>
 </head>
 <body>
 
@@ -22,16 +1108,14 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- ドロワーナビ -->
     <nav class="drawer" id="drawer">
       <ul>
-        <li><a href="#concept" class="nav-link">コンセプト</a></li>
-        <li><a href="#menu-yakitori" class="nav-link">炭火焼き</a></li>
-        <li><a href="#menu-ippin" class="nav-link">一品料理</a></li>
-        <li><a href="#menu-drink" class="nav-link">お酒</a></li>
-        <li><a href="#course" class="nav-link">コース</a></li>
-        <li><a href="#reserve" class="nav-link reserve-btn">ご予約</a></li>
+        <li><a href="#menu-highlight" class="nav-link">看板メニュー</a></li>
+        <li><a href="#scene" class="nav-link">こんな夜に</a></li>
+        <li><a href="#reviews" class="nav-link">クチコミ</a></li>
+        <li><a href="#reserve" class="nav-link">コース・予約</a></li>
         <li><a href="#access" class="nav-link">アクセス</a></li>
+        <li><a href="#reserve" class="nav-link reserve-btn">今すぐ予約</a></li>
       </ul>
     </nav>
     <div class="drawer-overlay" id="drawer-overlay"></div>
@@ -39,39 +1123,25 @@
 
   <!-- ヒーロー -->
   <section class="hero" id="hero">
-    <div class="hero-slides">
-      <!--
-        【画像差し替えポイント①】ヒーロー スライド1
-        現在: sumibi.webp（炭火グリル・煙・賑わう店内 → 看板イメージとして最適）
-        本番差し替え時: url('images/hero1.jpg') に変更
-      -->
-      <div class="hero-slide active"
-           style="background-image: url('images/sumibi.webp')">
-      </div>
-
-      <!--
-        【画像差し替えポイント②】ヒーロー スライド2
-        現在: negima.webp（ねぎま串盛り・照り・煙 → 食欲をそそる串焼きシーン）
-        本番差し替え時: url('images/hero2.jpg') に変更
-      -->
-      <div class="hero-slide"
-           style="background-image: url('images/negima.webp')">
-      </div>
-
-      <!--
-        【画像差し替えポイント③】ヒーロー スライド3
-        現在: torimomo.webp（もも焼き盛り合わせ・湯気・居酒屋の温かい雰囲気）
-        本番差し替え時: url('images/hero3.jpg') に変更
-      -->
-      <div class="hero-slide"
-           style="background-image: url('images/torimomo.webp')">
-      </div>
+    <div class="hero-slides" id="hero-slides">
+      <div class="hero-slide active kb-animate" style="background-image: url('images/sumibi.webp')"></div>
+      <div class="hero-slide" style="background-image: url('images/negima.webp')"></div>
+      <div class="hero-slide" style="background-image: url('images/torimomo.webp')"></div>
     </div>
     <div class="hero-overlay"></div>
+    <div class="embers" aria-hidden="true">
+      <div class="ember"></div>
+      <div class="ember"></div>
+      <div class="ember"></div>
+      <div class="ember"></div>
+      <div class="ember"></div>
+      <div class="ember"></div>
+    </div>
     <div class="hero-content">
-      <p class="hero-catch">炭の香りと、人の縁。</p>
-      <h1 class="hero-title">炭火居酒屋<br><span>縁 <em>-EN-</em></span></h1>
+      <p class="hero-catch">備長炭の前でしか、生まれない話がある。</p>
+      <h1 class="hero-title">炭火居酒屋<span>縁 <em>-EN-</em></span></h1>
       <p class="hero-sub">新橋駅 徒歩3分 ／ 完全個室あり</p>
+      <div class="hero-price-badge">コース ¥3,800〜 ／ 一品 ¥400〜</div>
       <div class="hero-btns">
         <a href="tel:03-XXXX-XXXX" class="btn btn-tel">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
@@ -80,349 +1150,266 @@
         <a href="#reserve" class="btn btn-web">WEB予約</a>
       </div>
     </div>
+    <div class="hero-dots" id="hero-dots">
+      <div class="hero-dot active"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+    </div>
     <div class="hero-scroll">
       <span>SCROLL</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- 予約バナー（常時表示） -->
-  <div class="reserve-bar">
-    <a href="tel:03-XXXX-XXXX" class="reserve-bar-tel">
+  <!-- クイックアクションバー -->
+  <div class="quick-bar">
+    <a href="tel:03-XXXX-XXXX" class="quick-bar-tel">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
       03-XXXX-XXXX
     </a>
-    <a href="#reserve" class="reserve-bar-web">今すぐ予約</a>
+    <span class="quick-bar-hours">月〜金 17:00〜24:00 ／ 土・祝 16:00〜23:00</span>
+    <a href="#reserve" class="quick-bar-btn">今すぐ予約</a>
   </div>
 
-  <!-- コンセプト -->
-  <section class="section concept" id="concept">
-    <div class="section-inner">
-      <div class="section-label">CONCEPT</div>
-      <h2 class="section-title">炭の火が、<br>縁をつなぐ。</h2>
-      <div class="concept-body">
-        <div class="concept-img-wrap">
-          <!--
-            【画像差し替えポイント④】コンセプト画像
-            推奨: 備長炭・炭火で焼く手元のクローズアップ（横長 800×533px）
-            本番: src="images/concept.jpg" に変更
-          -->
-          <img
-            src="images/sumibi.webp"
-            alt="備長炭で串焼きを焼く炭火グリルと賑わう店内"
-            class="concept-img"
-            width="800" height="533"
-            loading="lazy">
-        </div>
-        <div class="concept-text">
-          <p>
-            備長炭の遠赤外線がじっくりと素材を包み込み、<br>
-            表面はパリッと、中はふっくらジューシー。
-          </p>
-          <p>
-            「縁」が大切にするのは、食材と火の縁、<br>
-            お客様と仲間との縁、そしてこの場所に集う<br>
-            すべての人と人とのつながりです。
-          </p>
-          <p>
-            今夜も、ここで大切な時間をお過ごしください。
-          </p>
-        </div>
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item reveal">
+        <div class="stat-icon">★</div>
+        <div class="stat-number counter" data-target="4.8" data-decimals="1" data-suffix="">4.8</div>
+        <div class="stat-main">Google クチコミ</div>
+        <div class="stat-sub">Googleマップ 320件以上</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-number">備長炭</div>
+        <div class="stat-main">炭火串</div>
+        <div class="stat-sub">1本1本 手打ち仕込み</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-icon">🍶</div>
+        <div class="stat-number counter" data-target="20" data-decimals="0" data-suffix="種+">20種+</div>
+        <div class="stat-main">地酒 常時</div>
+        <div class="stat-sub">全国蔵元から直仕入れ</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 炭火焼き -->
-  <section class="section menu-section" id="menu-yakitori">
+  <!-- 看板メニュー -->
+  <section class="section menu-highlight" id="menu-highlight">
     <div class="section-inner">
-      <div class="section-label">CHARCOAL GRILL</div>
-      <h2 class="section-title">炭火焼き</h2>
-      <p class="section-desc">備長炭で丁寧に焼き上げた自慢の串。一本一本、職人が手打ちで仕込みます。</p>
-      <div class="menu-grid">
+      <div class="section-label">MENU HIGHLIGHT</div>
+      <h2 class="section-title reveal">「今夜、何を食べますか」</h2>
+      <p class="section-desc reveal">まずはこの3品から。縁の定番を。</p>
+      <div class="menu-highlight-grid">
 
-        <div class="menu-card">
-          <div class="menu-card-img-wrap">
-            <!--
-              【画像差し替えポイント⑤】炭火焼き①：もも焼き
-              推奨: 鶏もも串・炭火のクローズアップ（600×450px）
-              本番: src="images/yakitori1.jpg" に変更
-            -->
+        <div class="highlight-card reveal">
+          <div class="highlight-card-img-wrap">
             <img
               src="images/torimomo.webp"
-              alt="炭火焼きもも串・タレ照り・湯気が立つ盛り合わせ"
+              alt="備長炭もも焼き・肉汁あふれる鶏もも炭火焼き"
               width="600" height="450"
               loading="lazy">
-            <div class="menu-card-tag">人気No.1</div>
           </div>
-          <div class="menu-card-body">
-            <h3>もも焼き</h3>
-            <p>ジューシーな国産若鶏のもも肉。タレ・塩お選びいただけます。</p>
-            <span class="menu-price">180円<small>/本</small></span>
+          <div class="highlight-card-body">
+            <h3>備長炭 もも焼き</h3>
+            <p>炭火で焼いた肉汁あふれる鶏もも。</p>
+            <span class="highlight-price">¥380<small>/本</small></span>
           </div>
         </div>
 
-        <div class="menu-card">
-          <div class="menu-card-img-wrap">
-            <!--
-              【画像差し替えポイント⑥】炭火焼き②：つくね
-              推奨: つくね串・照りのあるタレ仕上げ（600×450px）
-              本番: src="images/yakitori2.jpg" に変更
-            -->
+        <div class="highlight-card reveal">
+          <div class="highlight-card-img-wrap">
             <img
               src="images/tukune.webp"
-              alt="自家製だれのつくね串・ごまと三つ葉のトッピング"
-              width="600" height="450"
-              loading="lazy">
-            <div class="menu-card-tag">おすすめ</div>
-          </div>
-          <div class="menu-card-body">
-            <h3>つくね</h3>
-            <p>自家製だれで仕上げた、ふわっとした食感の手ごねつくね。</p>
-            <span class="menu-price">200円<small>/本</small></span>
-          </div>
-        </div>
-
-        <div class="menu-card">
-          <div class="menu-card-img-wrap">
-            <!--
-              【画像差し替えポイント⑦】炭火焼き③：ねぎま
-              推奨: ねぎま串・グリル痕のある仕上がり（600×450px）
-              本番: src="images/yakitori3.jpg" に変更
-            -->
-            <img
-              src="images/negima.webp"
-              alt="鶏もも肉と長ねぎのねぎま串・炭火焼き仕上げ"
+              alt="手打ちつくね（タレ）・自家製タレが絡む濃厚な味わい"
               width="600" height="450"
               loading="lazy">
           </div>
-          <div class="menu-card-body">
-            <h3>ねぎま</h3>
-            <p>鶏もも肉と長ねぎを交互に刺した定番串。シンプルに素材を楽しむ。</p>
-            <span class="menu-price">180円<small>/本</small></span>
+          <div class="highlight-card-body">
+            <h3>手打ちつくね（タレ）</h3>
+            <p>自家製タレが絡む濃厚な味わい。</p>
+            <span class="highlight-price">¥320<small>/本</small></span>
           </div>
         </div>
 
-        <div class="menu-card">
-          <div class="menu-card-img-wrap">
-            <!--
-              【画像差し替えポイント⑧】炭火焼き④：とりかわ
-              推奨: パリパリのとりかわ串・香ばしいカット（600×450px）
-              本番: src="images/yakitori4.jpg" に変更
-            -->
+        <div class="highlight-card reveal">
+          <div class="highlight-card-img-wrap">
             <img
               src="images/torikawa.webp"
-              alt="パリパリとりかわ串・炭火でカリカリに焼き上げ"
+              alt="とりかわ（パリパリ）・備長炭で丁寧に焼き上げた皮串"
               width="600" height="450"
               loading="lazy">
           </div>
-          <div class="menu-card-body">
-            <h3>とりかわ</h3>
-            <p>パリパリになるまで丁寧に焼き上げた、カリカリの鶏皮串。</p>
-            <span class="menu-price">160円<small>/本</small></span>
+          <div class="highlight-card-body">
+            <h3>とりかわ（パリパリ）</h3>
+            <p>備長炭で丁寧に焼き上げた皮串。</p>
+            <span class="highlight-price">¥280<small>/本</small></span>
           </div>
         </div>
 
       </div>
-      <a href="#" class="btn-more">メニューをもっと見る</a>
+      <div class="menu-price-row reveal">
+        <span>串焼き <strong>¥280〜</strong></span>
+        <span>一品料理 <strong>¥480〜</strong></span>
+        <span>コース <strong>¥3,800〜</strong>（飲み放題込）</span>
+      </div>
+      <a href="#reserve" class="btn-outline reveal">フルメニューを見る →</a>
     </div>
   </section>
 
-  <!-- おすすめ一品 フィーチャー -->
-  <section class="feature-section" id="feature-ippin">
-    <div class="feature-img-wrap">
-      <!--
-        【画像差し替えポイント⑨】フィーチャー：シグネチャー料理
-        推奨: シラスおろし・食欲をそそる大皿ショット（800×600px）
-        本番: src="images/ippin_feature.jpg" に変更
-      -->
-      <!--
-        【画像差し替えポイント⑨】フィーチャー：シグネチャー料理
-        現在: yamamorisirasuorosi.webp（山盛りシラスおろし）
-      -->
-      <img
-        src="images/yamamorisirasuorosi.webp"
-        alt="山盛りシラスおろし・駿河湾直送の新鮮シラスをたっぷりと"
-        width="800" height="600"
-        loading="lazy">
-    </div>
-    <div class="feature-body">
-      <div class="feature-label">SIGNATURE DISH</div>
-      <h2 class="feature-title">山盛りシラスおろし</h2>
-      <p class="feature-desc">
-        駿河湾直送の新鮮シラスをたっぷりと。<br>
-        大根おろしとポン酢で、さっぱりと召し上がれ。<br>
-        炭火焼きとの相性も抜群のシグネチャーメニューです。
-      </p>
-      <span class="feature-price">680円</span>
-    </div>
-  </section>
-
-  <!-- 一品料理 -->
-  <section class="section menu-section" id="menu-ippin">
+  <!-- こんな夜に -->
+  <section class="section scene-section" id="scene">
     <div class="section-inner">
-      <div class="section-label">A LA CARTE</div>
-      <h2 class="section-title">一品料理</h2>
-      <p class="section-desc">旬の食材を活かした季節のおつまみ。お酒がすすむ自慢の一品たちです。</p>
-      <div class="menu-list">
+      <div class="section-label">YOUR SCENE</div>
+      <h2 class="section-title reveal">こんな夜に、縁を選ぶ人がいます。</h2>
+      <div class="scene-grid">
 
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑩】一品①：だし巻き玉子
-            推奨: だし巻き玉子・箸で切ったところ（150×150px 正方形）
-            本番: src="images/ippin1.jpg" に変更
-          -->
-          <img
-            src="images/dasimakitamago.webp"
-            alt="ふわとろだし巻き玉子・おろし添え"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>だし巻き玉子</h3>
-            <p>ふわとろ仕上げ。おろし添え。</p>
-          </div>
-          <span class="menu-price">480円</span>
+        <div class="scene-card reveal">
+          <div class="scene-emoji">🤝</div>
+          <div class="scene-heading">大事な接待に</div>
+          <p class="scene-quote">「失敗できない夜こそ、個室と炭火を。」</p>
+          <ul class="scene-bullets">
+            <li>完全個室あり・周りを気にせず商談</li>
+            <li>飲み放題コースで予算管理も安心</li>
+            <li>落ち着いた和の空間でお客様に好印象</li>
+          </ul>
         </div>
 
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑪】一品②：板わさ
-            推奨: 蒲鉾・わさびを盛り付けた和風スタイル（150×150px）
-            本番: src="images/ippin2.jpg" に変更
-          -->
-          <img
-            src="images/itawasa.webp"
-            alt="板わさ・紀州梅山葵と蒲鉾の定番セット"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>板わさ</h3>
-            <p>紀州梅山葵と蒲鉾の定番セット。</p>
-          </div>
-          <span class="menu-price">380円</span>
+        <div class="scene-card reveal">
+          <div class="scene-emoji">🥂</div>
+          <div class="scene-heading">記念日・誕生日に</div>
+          <p class="scene-quote">「特別な夜は、特別な場所で。」</p>
+          <ul class="scene-bullets">
+            <li>サプライズ演出のご相談承ります</li>
+            <li>特選コース ¥5,500〜でゆっくりと</li>
+            <li>SNS映えする個室で思い出に残る夜を</li>
+          </ul>
         </div>
 
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑫】一品③：鶏白湯スープ
-            推奨: 白濁した鶏スープ・湯気が立つシーン（150×150px）
-            本番: src="images/ippin3.jpg" に変更
-          -->
-          <img
-            src="images/toripaitan.webp"
-            alt="濃厚鶏白湯スープ・長時間煮込み"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>鶏白湯スープ</h3>
-            <p>長時間煮込んだ濃厚な鶏スープ。</p>
-          </div>
-          <span class="menu-price">380円</span>
+        <div class="scene-card reveal">
+          <div class="scene-emoji">🍻</div>
+          <div class="scene-heading">仕事帰りに一杯</div>
+          <p class="scene-quote">「カウンターで、今日の話をしよう。」</p>
+          <ul class="scene-bullets">
+            <li>17時〜オープン・仕事帰りにそのまま</li>
+            <li>一人でも歓迎・カウンター席あり</li>
+            <li>串一本から気軽に注文OK</li>
+          </ul>
         </div>
 
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑬】一品④：肉豆腐
-            推奨: 醤油煮込みの肉豆腐・土鍋か陶器鉢（150×150px）
-            本番: src="images/ippin4.jpg" に変更
-          -->
-          <img
-            src="images/nikudouhu.webp"
-            alt="甘辛醤油煮込みの肉豆腐"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>肉豆腐</h3>
-            <p>甘辛醤油で煮込んだ定番おつまみ。</p>
-          </div>
-          <span class="menu-price">580円</span>
-        </div>
-
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑭】一品⑤：ポテトサラダ
-            推奨: こんもりと盛ったポテサラ・和食器（150×150px）
-            本番: src="images/ippin5.jpg" に変更
-          -->
-          <!--
-            【画像差し替えポイント⑭】一品⑤：ポテトサラダ
-            現在: potetosarada.webp
-          -->
-          <img
-            src="images/potetosarada.webp"
-            alt="縁のポテトサラダ・自家製マヨネーズ仕立て"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>縁のポテサラ</h3>
-            <p>自家製マヨネーズ仕立て。定番の味。</p>
-          </div>
-          <span class="menu-price">380円</span>
-        </div>
-
-        <div class="menu-list-item">
-          <!--
-            【画像差し替えポイント⑮】一品⑥：〆の親子丼
-            推奨: とろとろ卵の親子丼・丼ぶり俯瞰ショット（150×150px）
-            本番: src="images/ippin6.jpg" に変更
-          -->
-          <img
-            src="images/oyakodon.webp"
-            alt="とろとろ卵の〆の親子丼・炭火焼きのだし使用"
-            width="150" height="150"
-            loading="lazy">
-          <div class="menu-list-body">
-            <h3>〆の親子丼</h3>
-            <p>炭火焼きのだしで炊いた絶品の締め。</p>
-          </div>
-          <span class="menu-price">680円</span>
-        </div>
-
-      </div>
-      <a href="#" class="btn-more">一品メニューをすべて見る</a>
-    </div>
-  </section>
-
-  <!-- お酒 フィーチャー -->
-  <section class="feature-section feature-dark" id="menu-drink">
-    <div class="feature-img-wrap">
-      <!--
-        【画像差し替えポイント⑯】フィーチャー：お酒
-        推奨: 一升瓶・ぐい飲み・暗背景の日本酒シーン（800×600px）
-        本番: src="images/drink_feature.jpg" に変更
-      -->
-      <img
-        src="images/zizake.webp"
-        alt="厳選地酒の一升瓶コレクション・全国各地の銘柄が並ぶ"
-        width="800" height="600"
-        loading="lazy">
-    </div>
-    <div class="feature-body">
-      <div class="feature-label">JAPANESE SAKE</div>
-      <h2 class="feature-title">こだわりの地酒</h2>
-      <p class="feature-desc">
-        全国各地の蔵元から仕入れた厳選地酒を<br>
-        常時20種以上ご用意。<br>
-        スタッフが料理との相性をご提案します。
-      </p>
-      <div class="drink-badges">
-        <span>日本酒</span>
-        <span>焼酎</span>
-        <span>クラフトビール</span>
-        <span>ハイボール</span>
-        <span>ワイン</span>
-        <span>ノンアルコール</span>
       </div>
     </div>
   </section>
 
-  <!-- コース -->
-  <section class="section course-section" id="course">
+  <!-- クチコミ -->
+  <section class="section reviews-section" id="reviews">
     <div class="section-inner">
-      <div class="section-label">COURSE</div>
-      <h2 class="section-title">コース・プラン</h2>
-      <p class="section-desc">宴会・接待・女子会・誕生日など、各シーンに合わせたコースをご用意しています。</p>
-      <div class="course-cards">
-        <div class="course-card">
+      <div class="section-label">REVIEW</div>
+      <h2 class="section-title reveal">実際に来た方の声</h2>
+      <p class="section-desc reveal" style="margin-bottom: 20px;">シーンで探す</p>
+      <div class="reviews-filter reveal">
+        <button class="filter-btn active" data-filter="all">全て</button>
+        <button class="filter-btn" data-filter="business">接待・ビジネス</button>
+        <button class="filter-btn" data-filter="anniversary">記念日</button>
+        <button class="filter-btn" data-filter="casual">仕事帰り</button>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card" data-scene="business">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">接待で初めて使いました。個室が落ち着いた和の雰囲気で商談も弾み、お客様に大変喜んでいただけました。もも焼きとつくねは絶品。また使います。</p>
+          <div class="review-footer">
+            <span class="review-name">T.K.</span>
+            <span class="review-date">2025年11月</span>
+          </div>
+        </div>
+
+        <div class="review-card" data-scene="anniversary">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">妻の誕生日に個室を予約。スタッフの方がサプライズで演出してくださり、感動的な夜になりました。特選コースのお料理も最高でした。</p>
+          <div class="review-footer">
+            <span class="review-name">Y.M.</span>
+            <span class="review-date">2025年10月</span>
+          </div>
+        </div>
+
+        <div class="review-card" data-scene="casual">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">仕事帰りに同僚と。カウンターで炭火を眺めながら飲む一杯は最高です。とりかわのパリパリ感が忘れられない。通います。</p>
+          <div class="review-footer">
+            <span class="review-name">S.O.</span>
+            <span class="review-date">2025年9月</span>
+          </div>
+        </div>
+
+        <div class="review-card" data-scene="business">
+          <div class="review-stars">★★★★<span style="color:var(--color-text-muted);">☆</span></div>
+          <p class="review-text">会社の歓送迎会で個室を使用。20名対応できてびっくり。料理のクオリティが高く参加者から好評でした。</p>
+          <div class="review-footer">
+            <span class="review-name">H.N.</span>
+            <span class="review-date">2025年8月</span>
+          </div>
+        </div>
+
+        <div class="review-card" data-scene="anniversary">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">交際記念日のディナーに。地酒の種類が豊富で、スタッフが料理との相性を丁寧に説明してくれました。大人のデートに最適です。</p>
+          <div class="review-footer">
+            <span class="review-name">A.K.</span>
+            <span class="review-date">2025年7月</span>
+          </div>
+        </div>
+
+        <div class="review-card" data-scene="casual">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">月2回は来てます。一人でカウンターでも全然OKで、マスターと話しながら飲む地酒が最高。新橋で一番好きな店です。</p>
+          <div class="review-footer">
+            <span class="review-name">R.T.</span>
+            <span class="review-date">2025年6月</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="reviews-google-link">
+        <a href="#" target="_blank" rel="noopener">Googleクチコミ 4.8★（320件以上）を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ご予約・コース -->
+  <section class="section reserve-section" id="reserve">
+    <div class="section-inner">
+      <div class="section-label">RESERVATION</div>
+      <h2 class="section-title reveal">ご予約・お問い合わせ</h2>
+      <p class="section-desc reveal">お電話・WEBどちらでもご予約を承っております。<br>コースや個室についてもお気軽にご相談ください。</p>
+
+      <div class="urgency-banner reveal">
+        <span class="urgency-banner-icon">🏮</span>
+        今週末の個室は残りわずかです。お早めにご予約ください。
+      </div>
+
+      <div class="reserve-options">
+        <a href="tel:03-XXXX-XXXX" class="reserve-option tel-option reveal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <div>
+            <span class="reserve-option-label">お電話でのご予約</span>
+            <span class="reserve-option-value">03-XXXX-XXXX</span>
+            <span class="reserve-option-hours">受付時間：17:00〜23:00</span>
+          </div>
+        </a>
+        <a href="#" class="reserve-option web-option reveal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <span class="reserve-option-label">WEBからのご予約</span>
+            <span class="reserve-option-value">24時間受付中</span>
+            <span class="reserve-option-hours">ホットペッパーグルメ連携</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="course-cards" style="margin-top: 40px;">
+        <div class="course-card reveal">
           <div class="course-card-head">
             <span class="course-badge">人気</span>
             <h3>縁コース</h3>
@@ -436,11 +1423,12 @@
             <li>デザート</li>
             <li>2時間飲み放題</li>
           </ul>
-          <a href="#reserve" class="btn btn-course">このコースで予約</a>
+          <a href="tel:03-XXXX-XXXX" class="btn-course">このコースで予約</a>
         </div>
-        <div class="course-card course-card-premium">
+
+        <div class="course-card course-card-premium reveal">
           <div class="course-card-head">
-            <span class="course-badge premium">プレミアム</span>
+            <span class="course-badge premium">記念日・接待におすすめ</span>
             <h3>特選コース</h3>
             <p class="course-price">5,500円<small>/名（飲み放題込み）</small></p>
           </div>
@@ -453,80 +1441,11 @@
             <li>デザート</li>
             <li>2時間プレミアム飲み放題</li>
           </ul>
-          <a href="#reserve" class="btn btn-course">このコースで予約</a>
+          <a href="tel:03-XXXX-XXXX" class="btn-course">このコースで予約</a>
         </div>
       </div>
-      <p class="course-note">※ご予約はお電話またはWEBフォームにて承ります。お気軽にご相談ください。</p>
-    </div>
-  </section>
 
-  <!-- 個室 -->
-  <section class="section room-section">
-    <div class="section-inner">
-      <div class="section-label">PRIVATE ROOM</div>
-      <h2 class="section-title">【限定1室】<br>完全個室</h2>
-      <p class="section-desc">接待・記念日・女子会に。<br>障子と畳の純和風空間で、周りを気にせずゆっくりとお過ごしいただけます。<br><strong>ご予約はお早めに。</strong></p>
-      <div class="room-gallery room-gallery-single">
-        <!--
-          【画像差し替えポイント⑰】完全個室（限定1室）
-          現在: kositu.webp（障子・畳・行灯の純和風個室）
-          本番差し替え時: src="images/kositu_honban.webp" に変更
-        -->
-        <div class="room-img-main">
-          <img
-            src="images/kositu.webp"
-            alt="純和風の完全個室・障子と畳・行灯の温かい灯り"
-            width="1200" height="654"
-            loading="lazy">
-        </div>
-      </div>
-      <div class="room-info">
-        <div class="room-info-item">
-          <span class="room-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </span>
-          <div>
-            <strong>総席数</strong>
-            <span>40席（完全個室1室含む）</span>
-          </div>
-        </div>
-        <div class="room-info-item">
-          <span class="room-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </span>
-          <div>
-            <strong>個室（限定1室）</strong>
-            <span>4名〜8名まで対応可</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 予約セクション -->
-  <section class="section reserve-section" id="reserve">
-    <div class="section-inner">
-      <div class="section-label">RESERVATION</div>
-      <h2 class="section-title">ご予約・お問い合わせ</h2>
-      <p class="section-desc">お電話・WEBどちらでもご予約を承っております。<br>コースや個室についてもお気軽にご相談ください。</p>
-      <div class="reserve-options">
-        <a href="tel:03-XXXX-XXXX" class="reserve-option tel-option">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          <div>
-            <span class="reserve-option-label">お電話でのご予約</span>
-            <span class="reserve-option-value">03-XXXX-XXXX</span>
-            <span class="reserve-option-hours">受付時間：17:00〜23:00</span>
-          </div>
-        </a>
-        <a href="#" class="reserve-option web-option">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <div>
-            <span class="reserve-option-label">WEBからのご予約</span>
-            <span class="reserve-option-value">24時間受付中</span>
-            <span class="reserve-option-hours">ホットペッパーグルメ連携</span>
-          </div>
-        </a>
-      </div>
+      <p class="reserve-note">※コース内容・個室利用・サプライズ演出などはお気軽にご相談ください。</p>
     </div>
   </section>
 
@@ -534,14 +1453,14 @@
   <section class="section access-section" id="access">
     <div class="section-inner">
       <div class="section-label">ACCESS</div>
-      <h2 class="section-title">アクセス</h2>
-      <div class="access-map">
+      <h2 class="section-title reveal">アクセス</h2>
+      <div class="access-map reveal">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6487787944566!2d139.7565579!3d35.6659827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bbd9009ec09%3A0x481a93f0d2a409dd!2z5paw5qmL5bqX!5e0!3m2!1sja!2sjp!4v1700000000000"
-          width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+          width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade" title="店舗地図"></iframe>
       </div>
-      <div class="access-info">
+      <div class="access-info reveal">
         <dl>
           <div class="access-row">
             <dt>店名</dt>
@@ -584,11 +1503,10 @@
         <strong>縁 -EN-</strong>
       </a>
       <nav class="footer-nav">
-        <a href="#concept">コンセプト</a>
-        <a href="#menu-yakitori">炭火焼き</a>
-        <a href="#menu-ippin">一品料理</a>
-        <a href="#menu-drink">お酒</a>
-        <a href="#course">コース</a>
+        <a href="#menu-highlight">看板メニュー</a>
+        <a href="#scene">こんな夜に</a>
+        <a href="#reviews">クチコミ</a>
+        <a href="#reserve">コース・予約</a>
         <a href="#access">アクセス</a>
       </nav>
       <p class="footer-tel"><a href="tel:03-XXXX-XXXX">03-XXXX-XXXX</a></p>
@@ -600,12 +1518,215 @@
   <!-- 固定予約ボタン（スマホ用） -->
   <div class="float-reserve">
     <a href="tel:03-XXXX-XXXX" class="float-btn float-tel">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
       電話する
     </a>
     <a href="#reserve" class="float-btn float-web">WEB予約</a>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    'use strict';
+
+    /* ===== HERO SLIDESHOW + KEN BURNS ===== */
+    (function () {
+      var slides = document.querySelectorAll('.hero-slide');
+      var dots = document.querySelectorAll('.hero-dot');
+      var current = 0;
+      var timer;
+
+      function goTo(index) {
+        slides.forEach(function (s) {
+          s.classList.remove('active', 'kb-animate');
+        });
+        dots[current].classList.remove('active');
+        current = index;
+        dots[current].classList.add('active');
+        // Force reflow to restart animation
+        void slides[current].offsetWidth;
+        slides[current].classList.add('active', 'kb-animate');
+      }
+
+      function next() {
+        goTo((current + 1) % slides.length);
+      }
+
+      function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 7000);
+      }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          goTo(i);
+          startTimer();
+        });
+      });
+
+      startTimer();
+    })();
+
+    /* ===== HEADER SCROLL CLASS ===== */
+    (function () {
+      var header = document.getElementById('site-header');
+
+      function onScroll() {
+        if (window.scrollY > 80) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ===== HAMBURGER DRAWER ===== */
+    (function () {
+      var hamburger = document.getElementById('hamburger');
+      var drawer = document.getElementById('drawer');
+      var overlay = document.getElementById('drawer-overlay');
+
+      function openDrawer() {
+        hamburger.classList.add('active');
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        hamburger.setAttribute('aria-label', 'メニューを閉じる');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        hamburger.classList.remove('active');
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', function () {
+        if (drawer.classList.contains('open')) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+
+      overlay.addEventListener('click', closeDrawer);
+
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', closeDrawer);
+      });
+    })();
+
+    /* ===== SMOOTH SCROLL ===== */
+    (function () {
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var href = this.getAttribute('href');
+          if (href === '#') return;
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            var headerH = document.getElementById('site-header').offsetHeight || 64;
+            var top = target.getBoundingClientRect().top + window.scrollY - headerH;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+
+    /* ===== SCROLL REVEAL (IntersectionObserver) ===== */
+    (function () {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('visible');
+        });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+
+    /* ===== ANIMATED COUNTER ===== */
+    (function () {
+      function animateCounter(el) {
+        var target = parseFloat(el.dataset.target);
+        var decimals = parseInt(el.dataset.decimals, 10) || 0;
+        var suffix = el.dataset.suffix || '';
+        var duration = 1800;
+        var start = null;
+
+        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+        function step(timestamp) {
+          if (!start) start = timestamp;
+          var elapsed = timestamp - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = easeOutCubic(progress);
+          var value = target * eased;
+          el.textContent = (decimals > 0 ? value.toFixed(decimals) : Math.floor(value)) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var counters = document.querySelectorAll('.counter');
+      if (!('IntersectionObserver' in window)) {
+        counters.forEach(animateCounter);
+        return;
+      }
+
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(function (el) { counterObserver.observe(el); });
+    })();
+
+    /* ===== REVIEW FILTER ===== */
+    (function () {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var reviewCards = document.querySelectorAll('.review-card');
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = this.dataset.filter;
+
+          // Toggle active state on buttons
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Show/hide cards
+          reviewCards.forEach(function (card) {
+            if (filter === 'all' || card.dataset.scene === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
